@@ -84,7 +84,7 @@ function query_mailcow_for_email_access($username = '')
 function mailcow_get_mailbox_realname($mailbox = '')
 {
 	// let's check if mailbox provided
-	if ($mailbox !== '') {
+	if ($mailbox === '') {
 		return null;
 	}
 
