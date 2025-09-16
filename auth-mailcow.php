@@ -54,6 +54,8 @@ function query_mailcow_for_email_access($username = '')
 			unset($emails[$i]); // lets be memory efficient
 		}
 	}
+
+	// with piler 1.4.7 this is deprecated and should be removed in the future
 	$data['emails'] = array_merge($data['emails'] , $emails);
 
 	// set realname, if available.
@@ -71,6 +73,9 @@ function query_mailcow_for_email_access($username = '')
 	// Released in piler 1.3.10.
 	$session->set('wildcard_domains', $wildcards);
 	$session->set('auth_data', $data);
+	
+	// starting with piler 1.4.7 function need to return an array of emails
+	return $emails;
 }
 
 // mailcow_get_aliases($mailbox) returns back the name of the
